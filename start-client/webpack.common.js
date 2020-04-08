@@ -82,7 +82,7 @@ const config = {
             minifyCSS: true,
           },
       template: './static/index.html',
-      title: 'Spring Initializr',
+      title: '莞工网安学院 Spring Initializr',
       description: `Initializr generates spring boot project with just what you need to start quickly!`,
       url: 'https://start.spring.io',
       twitter: '@springboot',
