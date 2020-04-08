@@ -14,6 +14,19 @@
 	<packaging>pom</packaging>
 	<name>start.spring.io</name>
 
+	<developers>
+		<developer>
+			<id>Sai</id>
+			<name>Li Zhixiong</name>
+			<email>dgsai@vip.qq.com</email>
+			<organization>东莞理工学院-网络空间安全学院</organization>
+			<organizationUrl>https://css.dgut.edu.cn</organizationUrl>
+			<roles>
+				<role>项目负责人</role>
+			</roles>
+		</developer>
+	</developers>
+
 	<properties>
 		<revision>0.0.1-SNAPSHOT</revision>
 		<disable.checks>false</disable.checks>
@@ -169,6 +182,13 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+
+		<repository>
+			<id>ustc-maven-proxy</id>
+			<name>中科大Maven反向代理</name>
+			<url>https://maven.proxy.ustclug.org/maven2/</url>
+		</repository>
+
 	</repositories>
 
 </project>
