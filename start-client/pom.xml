@@ -5,10 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.spring.start</groupId>
-		<artifactId>start-parent</artifactId>
+		<artifactId>css-spring-start-parent</artifactId>
 		<version>${revision}</version>
 	</parent>
-	<artifactId>start-client</artifactId>
+	<artifactId>css-spring-start-client</artifactId>
 	<name>start.spring.io client</name>
 
 	<build>
