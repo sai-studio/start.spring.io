@@ -5,11 +5,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.spring.start</groupId>
-		<artifactId>start-parent</artifactId>
+		<artifactId>css-spring-start-parent</artifactId>
 		<version>${revision}</version>
 	</parent>
-	<artifactId>start-site</artifactId>
+	<artifactId>css-spring-start-site</artifactId>
 	<name>start.spring.io website</name>
+
+	<properties>
+		<!-- docker镜像打包开关 -->
+		<!-- 本项目需要打包docker镜像，设置为false。 -->
+		<dockerfile.skip>false</dockerfile.skip>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -40,7 +46,7 @@
 
 		<dependency>
 			<groupId>io.spring.start</groupId>
-			<artifactId>start-client</artifactId>
+			<artifactId>css-spring-start-client</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
