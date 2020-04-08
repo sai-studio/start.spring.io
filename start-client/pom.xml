@@ -16,6 +16,7 @@
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.9.1</version><!-- 修改为最新版本，Modified by Sai on 2020-4-8 -->
 				<executions>
 					<execution>
 						<id>install node and yarn</id>
@@ -25,14 +26,29 @@
 						<configuration>
 							<nodeVersion>v10.15.3</nodeVersion>
 							<yarnVersion>v1.7.0</yarnVersion>
+							<nodeDownloadRoot>https://npm.taobao.org/mirrors/node/</nodeDownloadRoot>
+							<yarnDownloadRoot>https://npm.taobao.org/mirrors/yarn/</yarnDownloadRoot>
 						</configuration>
 					</execution>
+
+					<!-- Set yarn Registry 设置yarn的淘宝镜像源 -->
+					<execution>
+						<id>yarn set registry taobao mirror</id>
+						<goals>
+							<goal>yarn</goal>
+						</goals>
+						<configuration>
+							<arguments>config set registry https://registry.npm.taobao.org/</arguments>
+						</configuration>
+					</execution>
+
 					<execution>
 						<id>yarn install</id>
 						<goals>
 							<goal>yarn</goal>
 						</goals>
 					</execution>
+
 					<execution>
 						<id>yarn build</id>
 						<goals>
@@ -42,6 +58,7 @@
 							<arguments>build</arguments>
 						</configuration>
 					</execution>
+
 				</executions>
 			</plugin>
 			<plugin>
