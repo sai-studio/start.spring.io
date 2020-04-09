@@ -66,7 +66,7 @@ const SideLeft = () => {
             <a
               rel='noreferrer noopener'
               target='_blank'
-              href='https://github.com/spring-io/start.spring.io'
+              href='https://github.com/sai-studio/start.spring.io'
             >
               <span className='a-content' tabIndex='-1'>
                 <IconGithub />
@@ -75,10 +75,11 @@ const SideLeft = () => {
             <a
               rel='noreferrer noopener'
               target='_blank'
-              href='https://twitter.com/springboot'
+              href='https://css.dgut.edu.cn'
             >
               <span className='a-content' tabIndex='-1'>
-                <IconTwitter />
+                <img src={'/images/css-logo.png'} alt={'css-logo'}/>
+                {/*<IconTwitter />*/}
               </span>
             </a>
           </div>
@@ -148,7 +149,7 @@ const SideLeft = () => {
                         <a
                           rel='noreferrer noopener'
                           target='_blank'
-                          href='https://github.com/spring-io/start.spring.io'
+                          href='https://github.com/sai-studio/start.spring.io'
                         >
                           <span className='a-content' tabIndex='-1'>
                             Github
@@ -159,10 +160,10 @@ const SideLeft = () => {
                         <a
                           rel='noreferrer noopener'
                           target='_blank'
-                          href='https://twitter.com/springboot'
+                          href='https://css.dgut.edu.cn'
                         >
                           <span className='a-content' tabIndex='-1'>
-                            Twitter
+                            网安学院官网
                           </span>
                         </a>
                       </li>
