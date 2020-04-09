@@ -9,7 +9,11 @@ const Header = () => (
       <h1 className='logo'>
         <a href='/'>
           <span className='logo-content' tabIndex='-1'>
-            <Logo />
+              <img className={'img-logo'} src={'/images/css-logo.png'} alt={'css-logo'}/>
+              <div>
+                  <span>莞工网安学院</span>
+                  <Logo />
+              </div>
           </span>
         </a>
       </h1>

@@ -11,7 +11,11 @@ const HeaderMobile = () => {
       <h1 className='logo logo-mobile'>
         <a href='/'>
           <span className='logo-content' tabIndex='-1'>
-            <LogoMobile />
+              <img className={'img-logo'} src={'/images/css-logo.png'} alt={'css-logo'}/>
+              <div>
+                  <span>莞工网安学院</span>
+                  <LogoMobile />
+              </div>
           </span>
         </a>
       </h1>
