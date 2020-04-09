@@ -116,21 +116,32 @@ body {
     margin: 0;
   }
   h1.logo {
-    max-width: 320px;
+    max-width: 700px;
     padding: 2rem 0;
     a {
+      text-decoration-line: none;
       @include outline;
       display: block;
       margin-left: -6px;
       color: $light-color;
       .logo-content {
-        display: block;
+        display: flex;
         outline: none;
         box-shadow: none;
         padding: 6px;
       }
+      div{
+        margin-left: 20px;
+        align-items: center;
+        padding: 4px;
+      }
+      img{
+        width: 80px;
+        height: 80px;
+      }
       svg {
         display: block;
+        height: 42px;
       }
       .st0 {
         fill: $light-primary;
@@ -143,6 +154,18 @@ body {
   h1.logo-mobile {
     max-width: 140px;
     padding: 1rem 12px;
+    .img-logo{
+      width: 78px;
+      height: 78px;
+    }
+    span{
+      font-size: 16px;
+      display: block;
+      width: 100px;
+    }
+    svg{
+      margin-left: -50px;
+    }
   }
   .header-mobile {
     border-bottom: 1px solid $light-border;

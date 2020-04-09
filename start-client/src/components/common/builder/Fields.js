@@ -40,7 +40,7 @@ const Fields = ({
           <div className='col-sticky'>
             <div className='colset'>
               <div className='left'>
-                <Control text='Project'>
+                <Control text='项目构建方式'>
                   <Radio
                     name='project'
                     selected={get(values, 'project')}
@@ -52,7 +52,7 @@ const Fields = ({
                 </Control>
               </div>
               <div className='right'>
-                <Control text='Language'>
+                <Control text='开发语言'>
                   <Radio
                     name='language'
                     selected={get(values, 'language')}
@@ -65,7 +65,7 @@ const Fields = ({
               </div>
             </div>
 
-            <Control text='Spring Boot'>
+            <Control text='Spring Boot版本'>
               <Radio
                 name='boot'
                 selected={get(values, 'boot')}
@@ -85,12 +85,12 @@ const Fields = ({
               />
               {get(errors, 'boot') && (
                 <FieldError>
-                  Spring Boot {get(errors, 'boot.value')} is not supported.
-                  Please select a valid version.
+                  Spring Boot {get(errors, 'boot.value')} 不支持.
+                  请选择有效的版本.
                 </FieldError>
               )}
             </Control>
-            <Control text='Project Metadata'>
+            <Control text='项目元信息'>
               <FieldInput
                 id='input-group'
                 value={get(values, 'meta.group')}
@@ -110,7 +110,7 @@ const Fields = ({
               <FieldInput
                 id='input-name'
                 value={get(values, 'meta.name')}
-                text='Name'
+                text='项目名称'
                 onChange={event => {
                   update({ meta: { name: event.target.value } })
                 }}
@@ -118,7 +118,7 @@ const Fields = ({
               <FieldInput
                 id='input-description'
                 value={get(values, 'meta.description')}
-                text='Description'
+                text='项目描述'
                 onChange={event => {
                   update({ meta: { description: event.target.value } })
                 }}
@@ -126,7 +126,7 @@ const Fields = ({
               <FieldInput
                 id='input-packageName'
                 value={get(values, 'meta.packageName')}
-                text='Package name'
+                text='基础包'
                 onChange={event => {
                   update({ meta: { packageName: event.target.value } })
                 }}
@@ -134,7 +134,7 @@ const Fields = ({
               <FieldRadio
                 id='input-packaging'
                 value={get(values, 'meta.packaging')}
-                text='Packaging'
+                text='打包方式'
                 options={get(config, 'lists.meta.packaging')}
                 onChange={value => {
                   update({ meta: { packaging: value } })
@@ -143,7 +143,7 @@ const Fields = ({
               <FieldRadio
                 id='input-java'
                 value={get(values, 'meta.java')}
-                text='Java'
+                text='Java版本'
                 options={get(config, 'lists.meta.java')}
                 onChange={value => {
                   update({ meta: { java: value } })
@@ -165,7 +165,7 @@ const Fields = ({
           refButton={refSubmit}
           disabled={generating}
         >
-          {generating ? 'Generating...' : 'Generate'}
+          {generating ? '生成中...' : '生成'}
         </Button>
         <Button
           id='explore-project'
@@ -173,10 +173,10 @@ const Fields = ({
           hotkey='Ctrl + Space'
           refButton={refExplore}
         >
-          Explore
+          预览
         </Button>
         <Button id='share-project' onClick={onShare}>
-          Share...
+          分享...
         </Button>
       </Actions>
     </>
