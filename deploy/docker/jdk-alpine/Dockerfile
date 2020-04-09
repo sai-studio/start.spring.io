@@ -1,10 +1,11 @@
 FROM openjdk:14-alpine
 MAINTAINER LiZhiXiong "dgsai@vip.qq.com"
+ENV DOCKER_FILE_VERSION=1.0
 # openjdk的最新镜像：https://hub.docker.com/_/openjdk
 # 更新Alpine的软件源为国内（清华大学）的站点，因为从默认官源拉取实在太慢。
 RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main/" > /etc/apk/repositories
-# 更新alpine。但为了减少镜像体积，注释掉。
-# RUN apk update && apk upgrade
+# 更新alpine。
+RUN apk update && apk upgrade
 # wait-for-it脚本到容器，微服务的容器可能会用到。用于控制docker容器的启动和关闭的顺序
 # 参考：
 #  1、https://docs.docker.com/compose/startup-order/
@@ -71,8 +72,8 @@ RUN \
     rm \
         "$ALPINE_GLIBC_BASE_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
-        "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME" && \
-    \
-    rm "/root/.wget-hsts"
+        "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
+
+#RUN rm "/root/.wget-hsts"
 
 CMD "/bin/bash"
