@@ -32,9 +32,9 @@ initializr:
           - compatibilityRange: "[2.0.0.RELEASE,2.1.0.RELEASE)"
             version: 2.0.10
           - compatibilityRange: "[2.1.0.RELEASE, 2.2.0.M1)"
-            version: 2.1.7
+            version: 2.1.10
           - compatibilityRange: "2.2.0.M1"
-            version: 2.2.0
+            version: 2.2.4
       codecentric-spring-boot-admin:
         groupId: de.codecentric
         artifactId: spring-boot-admin-dependencies
@@ -45,7 +45,7 @@ initializr:
           - compatibilityRange: "[2.1.0.M1,2.2.0.M1)"
             version: 2.1.6
           - compatibilityRange: "2.2.0.M1"
-            version: 2.2.1
+            version: 2.2.3
       solace-spring-boot:
         groupId: com.solace.spring.boot
         artifactId: solace-spring-boot-bom
@@ -107,7 +107,7 @@ initializr:
             version: Greenwich.BUILD-SNAPSHOT
             repositories: spring-snapshots,spring-milestones
           - compatibilityRange: "[2.2.0.M4,2.3.x.BUILD-SNAPSHOT)"
-            version: Hoxton.SR3
+            version: Hoxton.SR4
           - compatibilityRange: "2.3.x.BUILD-SNAPSHOT"
             version: Hoxton.BUILD-SNAPSHOT
             repositories: spring-snapshots,spring-milestones
@@ -117,7 +117,7 @@ initializr:
         versionProperty: spring-cloud-alibaba.version
         mappings:
           - compatibilityRange: "[2.2.0.RELEASE,2.3.0.M1)"
-            version: 2.2.0.RELEASE
+            version: 2.2.1.RELEASE
       spring-cloud-services:
         groupId: io.pivotal.spring.cloud
         artifactId: spring-cloud-services-dependencies
@@ -151,7 +151,18 @@ initializr:
           - compatibilityRange: "[2.0.0.M1,2.1.0.M1)"
             version: 10.0.17
           - compatibilityRange: "2.1.0.M1"
-            version: 14.1.23
+            version: 14.1.28
+      wavefront:
+        groupId: com.wavefront
+        artifactId: wavefront-spring-boot-bom
+        versionProperty: wavefront.version
+        mappings:
+          - compatibilityRange: "[2.1.0.RELEASE,2.3.x.BUILD-SNAPSHOT)"
+            version: 2.0.0-RC1
+            repositories: spring-milestones
+          - compatibilityRange: "2.3.x.BUILD-SNAPSHOT"
+            version: 2.0.0-SNAPSHOT
+            repositories: spring-snapshots
     gradle:
       dependency-management-plugin-version: 1.0.9.RELEASE
     kotlin:
@@ -612,7 +623,7 @@ initializr:
             - compatibilityRange: "[2.2.0.M5,2.3.0.M1)"
               version: 1.2.6.RELEASE
             - compatibilityRange: "[2.3.0.M1, 2.3.x.BUILD-SNAPSHOT)"
-              version: 1.3.0.M3
+              version: 1.3.0.M4
               repositories: spring-milestones
             - compatibilityRange: "2.3.x.BUILD-SNAPSHOT"
               version: 1.3.0.BUILD-SNAPSHOT
@@ -735,10 +746,10 @@ initializr:
               version: 2.22.4
               groupId: org.apache.camel
             - compatibilityRange: "[2.1.0.M1,2.2.0.M1)"
-              version: 2.24.3
+              version: 2.25.1
               groupId: org.apache.camel
             - compatibilityRange: "2.2.0.M1"
-              version: 3.1.0
+              version: 3.2.0
           description: Apache Camel is an open source integration framework that empowers you to quickly and easily integrate various systems consuming or producing data.
           groupId: org.apache.camel.springboot
           artifactId: camel-spring-boot-starter
@@ -826,6 +837,71 @@ initializr:
           links:
             - rel: reference
               href: https://codecentric.github.io/spring-boot-admin/current/#getting-started
+    - name: Observability
+      content:
+        - name: Datadog
+          id: datadog
+          groupId: io.micrometer
+          artifactId: micrometer-registry-datadog
+          scope: runtime
+          starter: false
+          description: Datadog is a dimensional time-series SAAS with built-in dashboarding and alerting.
+          links:
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/html/production-ready-features.html#production-ready-metrics-export-datadog
+        - name: Influx
+          id: influx
+          groupId: io.micrometer
+          artifactId: micrometer-registry-influx
+          scope: runtime
+          starter: false
+          description: Support real-time stream processing and storage of time-series data.
+          links:
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/html/production-ready-features.html#production-ready-metrics-export-influx
+        - name: Graphite
+          id: graphite
+          groupId: io.micrometer
+          artifactId: micrometer-registry-graphite
+          scope: runtime
+          starter: false
+          description: Hierarchical metrics systems backed by a fixed-size database.
+          links:
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/html/production-ready-features.html#production-ready-metrics-export-graphite
+        - name: New Relic
+          id: new-relic
+          groupId: io.micrometer
+          artifactId: micrometer-registry-new-relic
+          scope: runtime
+          starter: false
+          description: SaaS offering with a full UI and a query language called NRQL.
+          links:
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/html/production-ready-features.html#production-ready-metrics-export-new-relic
+        - name: Prometheus
+          id: prometheus
+          groupId: io.micrometer
+          artifactId: micrometer-registry-prometheus
+          scope: runtime
+          starter: false
+          description: An in-memory dimensional time series database with a simple built-in UI, a custom query language, and math operations.
+          links:
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/html/production-ready-features.html#production-ready-metrics-export-prometheus
+        - name: Wavefront
+          id: wavefront
+          groupId: com.wavefront
+          artifactId: wavefront-spring-boot-starter
+          bom: wavefront
+          description: Tanzu Observability by Wavefront is a SaaS-based metrics monitoring and analytics platform that lets you visualize, query, and alert over data from across your entire stack (infrastructure, network, custom app metrics, business KPIs, etc.)
+          links:
+            - rel: reference
+              href: https://docs.wavefront.com/wavefront_springboot.html
+              description: Wavefront for Spring Boot documentation
+            - rel: reference
+              href: https://github.com/wavefrontHQ/wavefront-spring-boot
+              description: Wavefront for Spring Boot repository
     - name: Testing
       content:
         - name: Spring REST Docs
@@ -1261,6 +1337,7 @@ initializr:
           description: Support for externalized configuration in a distributed system, auto refresh when configuration changes.
           groupId: com.alibaba.cloud
           artifactId: spring-cloud-starter-alibaba-nacos-config
+          starter: false
           links:
             - rel: reference
               href: https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/en-us/index.html#_spring_cloud_alibaba_nacos_config
@@ -1283,6 +1360,7 @@ initializr:
           description: Flow control and circuit breaking with Alibaba Sentinel.
           groupId: com.alibaba.cloud
           artifactId: spring-cloud-starter-alibaba-sentinel
+          starter: false
           links:
             - rel: reference
               href: https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/en-us/index.html#_spring_cloud_alibaba_sentinel

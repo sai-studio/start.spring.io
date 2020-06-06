@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package io.spring.start.site.extension.dependency.springboot;
+package io.spring.start.site.extension.dependency.observability;
 
-import io.spring.initializr.generator.buildsystem.gradle.GradleBuildSystem;
-import io.spring.initializr.generator.buildsystem.maven.MavenBuildSystem;
-import io.spring.initializr.generator.condition.ConditionalOnBuildSystem;
+import io.spring.initializr.generator.buildsystem.Build;
 import io.spring.initializr.generator.condition.ConditionalOnRequestedDependency;
 import io.spring.initializr.generator.project.ProjectDescription;
 import io.spring.initializr.generator.project.ProjectGenerationConfiguration;
@@ -26,25 +24,22 @@ import io.spring.initializr.generator.project.ProjectGenerationConfiguration;
 import org.springframework.context.annotation.Bean;
 
 /**
- * {@link ProjectGenerationConfiguration} for customizations relevant for Spring Boot.
+ * Configuration for generation of projects that use observability.
  *
  * @author Stephane Nicoll
  */
 @ProjectGenerationConfiguration
-public class SpringBootProjectGenerationConfiguration {
+class ObservabilityProjectGenerationConfiguration {
 
 	@Bean
-	@ConditionalOnRequestedDependency("devtools")
-	@ConditionalOnBuildSystem(MavenBuildSystem.ID)
-	public DevToolsMavenBuildCustomizer devToolsMavenBuildCustomizer() {
-		return new DevToolsMavenBuildCustomizer();
+	ObservabilityBuildCustomizer observabilityBuildCustomizer() {
+		return new ObservabilityBuildCustomizer();
 	}
 
 	@Bean
-	@ConditionalOnRequestedDependency("devtools")
-	@ConditionalOnBuildSystem(GradleBuildSystem.ID)
-	public DevToolsGradleBuildCustomizer devToolsGradleBuildCustomizer(ProjectDescription projectDescription) {
-		return new DevToolsGradleBuildCustomizer(projectDescription);
+	@ConditionalOnRequestedDependency("wavefront")
+	WavefrontHelpDocumentCustomizer wavefrontHelpDocumentCustomizer(ProjectDescription description, Build build) {
+		return new WavefrontHelpDocumentCustomizer(description.getPlatformVersion(), build);
 	}
 
 }
